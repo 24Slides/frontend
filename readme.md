@@ -2,7 +2,7 @@
 
 ## Guides
 
-1. [Font Awesome Guide](FontAwesome/readme.md)
+1. [Font Awesome Guide](FontAwesome)
 
 ## Table of Contents
 
