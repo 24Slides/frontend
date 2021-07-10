@@ -2,14 +2,14 @@
 
 ## Table of contents
 
-1. [Style Structure](#style-structure)
-1. [Style Usage](#style-usage)
+1. [Styles Structure](#styles-structure)
+1. [Styles Usage](#styles-usage)
    1. [Responsive Styles](#responsive-styles)
 1. [BEM Methodology](#bem-methodology)
 1. [SCSS Nesting](#scss-nesting)
 1. [Style Rules](#style-rules)
 
-## Style Structure
+## Styles Structure
 
 The project's structure concept avoids `.scss` files in components' folder. We are moving styles to `styles`/`scss` folders. `/styles` folder structure:
 
@@ -49,7 +49,7 @@ styles
 
 In general, all styles are static and unchangable. Except `components` folder. The `components`'s purpose is UI component styles storage. A developer is able to create the files or folder structure he needs to.
 
-## Style Usage
+## Styles Usage
 
 Learn utility helpers `styles/utilities`.
 
