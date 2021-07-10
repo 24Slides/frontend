@@ -2,7 +2,7 @@
 
 ## Guides
 
-1. [SCSS and Styles](SCSS)
+1. [Styles Guide](Styles)
 1. [Font Awesome Guide](FontAwesome)
 
 ## Table of Contents
