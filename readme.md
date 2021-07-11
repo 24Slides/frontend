@@ -19,19 +19,19 @@
   - `Task number` - a number that Linear generates on task creation and it is unique.
   - `Task name` - a short name to define an implementation scope.
 
-  ```php
-  // Avoid; "tfl" should be in uppercase
-  tfl-111-header
+```php
+// Avoid; "tfl" should be in uppercase
+tfl-111-header
 
-  // Avoid; No context
-  TFL-111-fixes
+// Avoid; No context
+TFL-111-fixes
 
-  // Prefer
-  TFL-111-header-refactoring
+// Prefer
+TFL-111-header-refactoring
 
-  // Prefer
-  TFL-111-public-page-fixes //
-  ```
+// Prefer
+TFL-111-public-page-fixes
+```
 
 - Follow [Linear's task statuses](https://tppr.me/8EemA);
 
