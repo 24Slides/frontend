@@ -16,7 +16,7 @@ The project's structure concept avoids `.scss` files in components' folder. We a
 ```
 styles
 ├─ components
-│  ├─ **/*.scss
+│  └─ **/*.scss
 ├─ utilities
 ├─ mixins
 │  ├─ _box.scss

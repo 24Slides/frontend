@@ -2,12 +2,14 @@
 
 ## Guides
 
+1. [JavaScript / React Guide](React)
 1. [Styles Guide](Styles)
 1. [Font Awesome Guide](FontAwesome)
 
 ## Table of Contents
 
 1. [Development Process](#development-process)
+1. [Re-exporing and Aliases Approach](#re-exporing-and-aliases-approach)
 
 ## Development Process
 
