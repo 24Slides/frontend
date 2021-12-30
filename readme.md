@@ -19,45 +19,41 @@
   - `Task number` - a number that Linear generates on task creation and it is unique.
   - `Task name` - a short name to define an implementation scope.
 
-```php
-// Avoid; "tfl" should be in uppercase
-tfl-111-header
+    ```php
+    // Avoid; No context; "tfl" should be in uppercase;
+    tfl-111-fixes
+    ```
 
-// Avoid; No context
-TFL-111-fixes
+    ```php
+    // Prefer
+    TFL-111-header-refactoring
+    ```
 
-// Prefer
-TFL-111-header-refactoring
-
-// Prefer
-TFL-111-public-page-fixes
-```
+    ```php
+    // Prefer
+    TFL-111-public-page-fixes
+    ```
 
 - Follow [Linear's task statuses](https://tppr.me/8EemA);
 
-- The commit message should start with the task number. Example: TFL-179: Add new feature. Follow commit scope and message. Avoid messages like "fixed styles", prefer - "fixed login form styles";
-
-  > Note: there is `:` sumbol at the end of every example because of VS Code auto-formatting
+- The commit message should start with the task number. Example: `TFL-179: Add new feature`. Follow commit scope and message. Avoid messages like `"fixed styles"`, prefer - `"fixed login form styles"`;
 
   ```js
   // Avoid; No task identifies
   Fixed header styles
+  ```
 
-  // Avoid; `tfl` should be in uppercase
-  tfl-111: Commit message
-
-  // Avoid; no colon after task identifier
-  TFL-111 Commit message
-
+  ```js
   // Avoid; No context
   TFL-111: Fixed styles
+  ```
 
+  ```js
   // Avoid; No context
   TFL-111: Fixes after code review
+  ```
 
-  // Avoid; No context
-  TFL-111: Fixes after testing
-
+  ```js
   // Prefer
   TFL-111: Created header markup, styles
   ```
@@ -67,22 +63,13 @@ TFL-111-public-page-fixes
 - PR's title should contain the Linear's task identifier according to the next formula: `TFL` + `task number`. LinearBot tracks the PRs and titles. When the title corresponds to Linear's task identifier, Linear's link, task title, and its description will be added as a comment by the bot automatically. Follow next title template:
 
   ```js
-  // Avoid; `tfl` should be in uppercase
-  tfl-11: Header refactoring
-
-  // Avoid; No colons
-  TFL-11 Header refactoring
-
   // Avoid; No context
   TFL-11: Header
+  ```
 
-  // Prefer
-  TFL-11: Header refactoring
-
+  ```js
   // Prefer
   TFL-11: Update treatments page styles
   ```
 
 - Fill PR description. Add a changelog, what you have done, some special cases or comments, you would like to note.
-
-- Don't merge PR, even if it is approved.
