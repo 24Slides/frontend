@@ -33,7 +33,7 @@ src
 ├─ pages
 ├─ redux
 │  ├─ actions
-│  ├─ selectors
+│  ├─ reducers
 │  └─ selectors
 ├─ services
 ├─ styles
