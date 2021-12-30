@@ -2,6 +2,7 @@
 
 ## Guides
 
+1. [Folder Structure](FolderStructure)
 1. [JavaScript / React Guide](React)
 1. [Styles Guide](Styles)
 1. [Font Awesome Guide](FontAwesome)
