@@ -247,6 +247,15 @@ export type BoxSize = 16 | 24 | 32 | 40 | 48;
 export type Noop<F = () => void> = F;
 ```
 
+### Utils
+
+Utils folder contains simple utility functions that may be used in any place of the application.
+
+```ts
+export const roundDecimal = (number: number): number =>
+  Math.round((number + Number.EPSILON) * 100) / 100;
+```
+
 ### src/App.tsx
 
 `App.tsx` is main component.
