@@ -32,7 +32,7 @@ It makes the components readable and scalable.
   ```js
   1. Packages
   // Line break
-  2. Types > constants > content = helpers = utilities = hooks = actions = selectors > other
+  2. Types > constants > content = utils = services = hooks = actions = selectors > other
   // Line break
   3. Components
   4. Images
@@ -49,8 +49,8 @@ It makes the components readable and scalable.
   import type { Type } from "@types/app.types";
   import * as constants from "@constants";
   import * as actions from "@actions";
-  import { reducer } from "@helpers";
-  import { axios } from "@utils";
+  import { reducer } from "@utils";
+  import { axios } from "@services";
   import { createLoadingSelector } from "@selectors";
 
   import { Button, Link, Render } from "@components";
