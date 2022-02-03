@@ -61,7 +61,7 @@ src/assets
 
 ```
 src/components
-├─ Buttons
+├─ Ui
 │  ├─ Button.tsx
 │  ├─ Link.tsx
 │  └─ index.ts
@@ -82,8 +82,8 @@ export const PRODUCTION = process.env.REACT_APP_ENV === "production";
 ```
 
 ```js
-export const HIGH_LEVEL_CONSTANT = {
-  LOW_LEVEL_CONSTANT: "LOW_LEVEL_CONSTANT",
+export const FIRST_LEVEL_CONSTANT = {
+  SECOND_LEVEL_CONSTANT: "SECOND_LEVEL_CONSTANT",
 };
 ```
 
@@ -148,12 +148,6 @@ src/hooks
 └─ index.ts
 ```
 
-```js
-// src/hooks/useForceRender.ts
-
-export const useForceRender = () => useReducer(() => ({}), {})[1];
-```
-
 ### Images
 
 ```
@@ -176,13 +170,13 @@ A page name should match with name pattern in pascal case `page name` + `Page`.
 
 ### Services
 
-`services` folder contains configs, settings and other external services.
+`services` folder contains configs, settings and other external services with a duplicate name `*.service.ts`.
 
 ```
 src/services
-├─ axios.ts
-├─ hotjar.ts
-├─ *.ts
+├─ axios.service.ts
+├─ hotjar.service.ts
+├─ *.service.ts
 └─ index.ts
 ```
 
@@ -194,23 +188,18 @@ src/styles
 │  ├─ _button.scss
 │  ├─ _ui.scss
 │  └─ **/*.s?css
-├─ utils
-│  ├─ _boundary-box.scss
+├─ utilities
 │  ├─ _box.scss
 │  ├─ _display.scss
 │  ├─ _flex.scss
-│  ├─ _helpers.scss
 │  ├─ _position.scss
 │  └─ **/*.s?css
 ├─ mixins
 │  ├─ _box.scss
-│  ├─ _font-face.scss
 │  ├─ _font-size.scss
 │  └─ **/*.scss
-├─ _bootstrap.scss
 ├─ _colors.scss
 ├─ _reset.scss
-├─ _typography.scss
 ├─ _variables.scss
 ├─ **/*.s?css
 └─ index.scss
@@ -221,7 +210,6 @@ src/styles
 - `_reset.scss` - reset default browser CSS styles;
 - `_colors.scss` - color utilities;
 - `_variables.scss` - global variables: font-family names, media breakpoints, colors, etc;
-- `_typography.scss` - default typography styles;
 - `index.scss` - entry point of styles;
 
 ### Types
@@ -249,10 +237,10 @@ export type Noop<F = () => void> = F;
 
 ### Utils
 
-Utils folder contains simple utility functions that may be used in any place of the application.
+`utils` folder contains simple utility functions for common usage.
 
 ```ts
-export const roundDecimal = (number: number): number =>
+export const roundDecimal = (number) =>
   Math.round((number + Number.EPSILON) * 100) / 100;
 ```
 
