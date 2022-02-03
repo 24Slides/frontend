@@ -59,7 +59,7 @@
   TFL-111: Created header markup, styles
   ```
 
-- When a task is completed, create Pull Request (PR) in GitHub, request Andriy to code review. You are able to move forward with other tasks while the current task in code review status.
+- When a task is completed, create Pull Request (PR) on GitHub, request the developers to code review. You are able to move forward with other tasks while the current task in code review status.
 
 - PR's title should contain the Linear's task identifier according to the next formula: `TFL` + `task number`. LinearBot tracks the PRs and titles. When the title corresponds to Linear's task identifier, Linear's link, task title, and its description will be added as a comment by the bot automatically. Follow next title template:
 

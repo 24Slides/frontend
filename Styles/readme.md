@@ -19,11 +19,7 @@ styles
 │  └─ **/*.scss
 ├─ utilities
 ├─ mixins
-│  ├─ _box.scss
-│  ├─ _font-face.scss
-│  └─ _font-size.scss
-├─ _animations.scss
-├─ _compatibility.scss
+│  └─ **/*.scss
 ├─ _fonts.scss
 ├─ _functions.scss
 ├─ _import.scss
@@ -42,7 +38,6 @@ styles
 - `_import.scss` - a single import file for separated style files of a project;
 - `_functions.scss` - function collection;
 - `_fonts.scss` - the font settings;
-- `_compatibility.scss` - styles for compatibility;
 - `/mixins` - mixin collection;
 - `/utilities` - helpers collection;
 - `/components` - independed, separated component/section/page styles;
@@ -63,6 +58,7 @@ To import style file into any component from `styles/components` folder, use ali
 
 ```jsx
 // File is located at `styles/components/_example.scss`
+
 import '@styles/_example';
 
 const Component = () => { ... }
@@ -72,13 +68,17 @@ const Component = () => { ... }
 
   ```scss
   // Avoid
+
   @import "../../variables";
 
   .selector {
     background-color: $secondary-100;
   }
+  ```
 
+  ```scss
   // Prefer
+
   @import "~styles/variables";
 
   .selector {
@@ -90,23 +90,33 @@ const Component = () => { ... }
 
   ```scss
   // Allowed
+
   .selector {
     width: 24px;
     height: 48px;
   }
+  ```
 
+  ```scss
   // Allowed
+
   .selector {
     width: 24px;
     height: 24px;
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector {
     @include box(24);
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector {
     @include box(24, 48);
   }
@@ -116,22 +126,31 @@ const Component = () => { ... }
 
   ```scss
   // Allowed
+
   .selector {
     font-size: 24px;
     line-height: normal;
   }
+  ```
 
+  ```scss
   // Allowed
+
   .selector {
     font-size: 24px;
     line-height: 28px;
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector {
     @include font-size(24);
   }
+  ```
 
+  ```scss
   // Prefer
   .selector {
     @include font-size(24, 28);
@@ -146,81 +165,11 @@ Currently, we support devices with a screen's width `320px` and above. The break
 - Tablet - from `768px` to `1024px`;
 - Mobile - to `767px`;
 
-We created mixins for them:
+There are a few mixins for them:
 
 - `lg` ("large") - desktop;
 - `md` ("medium") - tablet;
 - `sm` ("small) - mobile;
-
-We moved forward and combined them to make a coverage of all responsive style cases: `md-lg`, `lg-md`, `sm-md`, and `md-sm`.
-
-The responsive style concept is preventing re-setting styles on different devices.
-
-- Use adaptive mixins to add responsive styles:
-
-  ```scss
-  // Avoid
-  @media (min-width: 1024px) {
-    .selector {
-    }
-  }
-
-  // Prefer
-  .selector {
-    @include lg {
-    }
-  }
-  ```
-
-- Combine adaptive mixins to reduce unnecessary code:
-
-  ```scss
-  // Avoid
-  .selector {
-    @include lg {
-      display: none;
-    }
-
-    @include md {
-      display: none;
-    }
-  }
-
-  // Prefer
-  .selector {
-    @include lg-md {
-      display: none;
-    }
-  }
-  ```
-
-- Prevent style conflicts between devices:
-
-  ```scss
-  // Avoid
-  .selector {
-    // It fires on always
-    padding: 16px;
-
-    @include sm {
-      // It fires on mobile only
-      padding: 8px;
-    }
-  }
-
-  // Prefer
-  .selector {
-    @include lg-md {
-      // It fires on tablet and desktop only
-      padding: 16px;
-    }
-
-    @include sm {
-      // It fires on mobile only
-      padding: 8px;
-    }
-  }
-  ```
 
 ## BEM Methodology
 
@@ -228,14 +177,21 @@ The responsive style concept is preventing re-setting styles on different device
 
   ```scss
   // Avoid
+
   .selector__container__link {
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector__link {
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector__link-container {
   }
   ```
@@ -244,6 +200,7 @@ The responsive style concept is preventing re-setting styles on different device
 
   ```scss
   // Avoid
+
   .selector__nav-container {
   }
 
@@ -252,8 +209,11 @@ The responsive style concept is preventing re-setting styles on different device
 
   .selector__nav-button {
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector-nav__container {
   }
 
@@ -268,10 +228,14 @@ The responsive style concept is preventing re-setting styles on different device
 
   ```scss
   // Avoid
+
   .selector__button--disabled {
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector__button.disabled {
   }
   ```
@@ -280,47 +244,11 @@ The responsive style concept is preventing re-setting styles on different device
 
 Keep the styles as simple as possible. There are a few utility extendeds like tailwind/bootstrap approaches.
 
-- Follow the next selectors order:
-
-  ```js
-  1. Extends via `&`
-  2. Classes
-  3. Elements
-  ```
-
-  ```scss
-  // Prefer
-  .selector {
-    // Extends
-    &__container {
-    }
-
-    &__button {
-    }
-
-    &__link {
-    }
-
-    // Classess
-    .boundary-box {
-    }
-
-    .specific-name {
-    }
-
-    // Elements
-    button {
-    }
-
-    a {
-    }
-  }
-  ```
-
 - Keep only one nesting level:
 
   ```scss
   // Avoid
+
   .selector {
     &__container {
       .another-selector {
@@ -329,8 +257,11 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
       }
     }
   }
+  ```
 
+  ```scss
   // Avoid
+
   .selector {
     &__block {
       &-container {
@@ -339,8 +270,11 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
       }
     }
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector {
     &__container {
     }
@@ -351,8 +285,11 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
     .another-selector img {
     }
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector {
     &__block {
     }
@@ -369,6 +306,7 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
 
   ```scss
   // Avoid
+
   .selector {
     ul {
     }
@@ -379,8 +317,11 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
     a {
     }
   }
+  ```
 
+  ```scss
   // But allowed with styles
+
   .selector {
     &__image-container img {
     }
@@ -392,60 +333,25 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
 
 ## Style Rules
 
-- Prefer `px` unit:
-
-  ```scss
-  // Avoid
-  .selector {
-    padding: 10%;
-  }
-
-  // Avoid
-  .selector {
-    font-size: 1.2em;
-    line-height: 1.6;
-  }
-
-  // Prefer
-  .selector {
-    padding: 16px;
-  }
-
-  // Prefer
-  .selector {
-    font-size: 16px;
-    line-height: 20px;
-  }
-  ```
-
-- `z-index` value cannot be unreasonable:
-
-  ```scss
-  // Avoid
-  .selector {
-    z-index: 99;
-  }
-
-  // Prefer
-  .selector {
-    z-index: 1;
-  }
-  ```
-
 - Avoid BEM's block styles:
 
   ```scss
   // Avoid
+
   .selector {
     padding: 16px;
 
     &__content {
     }
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector {
-    &__wrapper {
+    &__wrapper,
+    &__container {
       padding: 16px;
     }
 
@@ -454,7 +360,7 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
   }
   ```
 
-- Avoid using too common class names: `button`, `title`, `form`, `text`, `row`, `block`, `container`, `wrapper`, etc;
+- Avoid using common class names: `button`, `title`, `form`, `text`, `row`, `block`, `container`, `wrapper`, etc;
 
   ```scss
   // Avoid
@@ -478,19 +384,23 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
 
   ```scss
   // Avoid
+
   .selector {
     color: #fff;
     background-color: rgba(0, 0, 0, 0.5);
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector {
     color: $text-100;
     background-color: rgba($text-700, 0.5);
   }
   ```
 
-- Follow the next rules order:
+- Come uo with the rules order. Out example:
 
   ```js
   1. content
@@ -584,10 +494,11 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
   }
   ```
 
-- BEM's modifiers, pseudo-classes, and pseudo-elements can reach second nesting level:
+- BEM's modifiers, simple pseudo-classes, and simple pseudo-elements can reach second nesting level:
 
   ```scss
   // Avoid
+
   .selector {
     &__button {
       &:hover img {
@@ -597,8 +508,11 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
       }
     }
   }
+  ```
 
+  ```scss
   // Prefer
+
   .selector {
     &__button:hover .icon {
     }
@@ -606,8 +520,11 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
     &__button:hover img {
     }
   }
+  ```
 
+  ```scss
   // Allowed
+
   .selector {
     &__button.disabled {
     }
@@ -621,8 +538,11 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
     &__button::before {
     }
   }
+  ```
 
+  ```scss
   // Allowed
+
   .selector {
     &__button {
       &:hover {
@@ -640,33 +560,14 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
   }
   ```
 
-- Skip unneseccary selectors:
-
-  ```scss
-  // Avoid
-  .selector {
-    & .disabled {
-    }
-
-    & > img {
-    }
-  }
-
-  // Prefer
-  .selector {
-    .disabled {
-    }
-
-    > img {
-    }
-  }
-  ```
-
-- Use `::` for `before`/`after` pseudo-elements;
-
 - Avoid images via `background-image`;
 
-- Avoid `!important`. It is not a good practice;
+- Avoid `!important`;
+
+- Prefer `px` unit;
+
+- `z-index` value cannot be unreasonable;
+
 - Follow formatting;
 
 ## Sources
