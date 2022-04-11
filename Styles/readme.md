@@ -566,7 +566,7 @@ Keep the styles as simple as possible. There are a few utility extendeds like ta
 
 - Prefer `px` unit;
 
-- Do not use `gap` property for flex elements.
+- Do not use `gap` property for flex elements;
 
 - `z-index` value cannot be unreasonable;
 
